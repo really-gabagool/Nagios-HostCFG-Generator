@@ -19,7 +19,7 @@ define service {
     use                     generic-service
     host_name               8459
     service_description     NCPA Version
-    check_command           check_ncpa!-t '5183465060' -P 5693 -M system/agent_version
+    check_command           check_ncpa!-t '<your api key>' -P 5693 -M system/agent_version
 }
 
 ### SERVICE TO CHECK UPTIME OF SERVER ###
@@ -29,7 +29,7 @@ define service {
     use                     generic-service
     host_name               8459
     service_description     Uptime
-    check_command           check_ncpa!-t '5183465060' -P 5693 -M system/uptime -u G
+    check_command           check_ncpa!-t '<your api key>' -P 5693 -M system/uptime -u G
 }
 
 ### SERVICE TO CHECK CPU LOAD ###
@@ -39,7 +39,7 @@ define service {
     use                     generic-service
     host_name               8459
     service_description     CPU Load
-    check_command           check_ncpa!-t '5183465060' -P 5693 -M cpu/percent -w 20 -c 40 -q 'aggregate=avg'
+    check_command           check_ncpa!-t '<your api key>' -P 5693 -M cpu/percent -w 20 -c 40 -q 'aggregate=avg'
 }
 
 ### SERVICE TO CHECK RAM USAGE ###
@@ -49,7 +49,7 @@ define service {
     use                     generic-service
     host_name               8459
     service_description     Memory Usage
-    check_command           check_ncpa!-t '5183465060' -P 5693 -M  memory/virtual -w 50 -c 80 -u G
+    check_command           check_ncpa!-t '<your api key>' -P 5693 -M  memory/virtual -w 50 -c 80 -u G
 }
 
 ### SERVICE TO CHECK DRIVE SPACE ###
@@ -59,7 +59,7 @@ define service {
     use                     generic-service
     host_name               8459
     service_description     C:\ Drive Space
-    check_command           check_ncpa! -t '5183465060' -P 5693 -M 'disk/logical/C:|/used_percent' --warning 85 --critical 90
+    check_command           check_ncpa! -t '<your api key>' -P 5693 -M 'disk/logical/C:|/used_percent' --warning 85 --critical 90
 }
 
 ### SERVICE TO CHECK RUNNING PROCESSES ###
@@ -69,6 +69,6 @@ define service {
      use                     generic-service
      host_name               8459
      service_description     Processes Running
-     check_command           check_ncpa!-t '5183465060' -P 5693 -M processes -w 250 -c 300
+     check_command           check_ncpa!-t '<your api key>' -P 5693 -M processes -w 250 -c 300
 
 }
